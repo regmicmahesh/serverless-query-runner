@@ -1,0 +1,21 @@
+
+  <table class="table table-responsive">
+  <thead>
+    <tr>
+      <% for (let i = 0; i < fields.length; i++) { %>
+            <th scope="col"><%= fields[i].name %></th>
+      <% } %>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (let i = 0; i < rows.length; i++) { %>
+      <tr>
+        <% for (let j = 0; j < fields.length; j++) { %>
+          <td><%= rows[i][j] %></td>
+        <% } %>
+      </tr>
+    <tr>
+    </tr>
+    <% } %>
+  </tbody>
+</table>

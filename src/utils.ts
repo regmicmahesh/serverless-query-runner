@@ -9,3 +9,9 @@ export const getEnv = (key: string, defaultValue?: string): string => {
   throw new Error(`Environment variable ${key} is not set`);
 };
 
+export class Message {
+  constructor(
+    public messageType: "success" | "danger",
+    public message: string
+  ) {}
+}

@@ -11,7 +11,21 @@
 
 <div class="container border mt-5 p-2">
   <%- include('../partials/query-form.ejs') %>
+
+  <% if (locals.message) { %>
+    <div class="mt-5 alert alert-<%= message.messageType %>" role="alert">
+    <%= message.message %>
+  <% } %>
+
 </div>
+
+
+<% if (locals.result) { %>
+<div class="container border mt-5 p-2">
+  <%- include('../partials/query-result.ejs', { rows: result.rows, fields: result.fields }) %>
+</div>
+
+<% } %>
 
 
 <%- include('../partials/footer.ejs') %>
