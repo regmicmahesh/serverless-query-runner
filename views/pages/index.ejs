@@ -1,0 +1,17 @@
+<%- include('../partials/header.ejs' , {title: 'Home'}) %>
+
+<% if (user) { %>
+<ul class="nav justify-content-end p-3">
+  <li class="nav-item">
+    <a class="nav-link active" href="/auth/logout">Logout</a>
+  </li>
+</ul>
+
+<% } %>
+
+<div class="container border mt-5 p-2">
+  <%- include('../partials/query-form.ejs') %>
+</div>
+
+
+<%- include('../partials/footer.ejs') %>
