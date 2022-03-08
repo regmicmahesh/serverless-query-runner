@@ -5,7 +5,7 @@ import authRouter from "./routes/auth";
 import passport from "./auth";
 import { isLoggedIn } from "./middlewares/isLoggedIn";
 import { runQuery } from "./db/query";
-import { Message } from "./utils";
+import { getEnv, Message } from "./utils";
 import { QueryResult } from "pg";
 
 const app = express();
@@ -14,10 +14,12 @@ app.set("trust proxy", 1);
 
 app.use("/public", express.static("public"));
 
+const cookieSecrets = getEnv("COOKIE_SECRETS").split(",");
+
 app.use(
   cookieSession({
     name: "github-auth-session",
-    keys: ["SECRETKEY", "SECRETKEYTWO"],
+    keys: cookieSecrets,
     httpOnly: false,
     maxAge: 24 * 60 * 60 * 1000,
   })

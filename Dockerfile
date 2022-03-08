@@ -12,7 +12,7 @@ WORKDIR ${LAMBDA_TASK_ROOT}
 COPY package.json ./
 ENV NODE_ENV production
 RUN npm install --production
-COPY public .
-COPY views .
+COPY public ./public/
+COPY views ./views/
 COPY --from=build /app/dist .
 CMD [ "handler.handler" ]  
